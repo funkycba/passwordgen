@@ -45,7 +45,7 @@ function generatePassword() {
 
   if (typeProm === "yes") {
     genArr.concat(numCharacters);
-    caseProm = window.alert("You chose to include numeric characters.");
+    typeProm = window.alert("You chose to include numeric characters.");
   }
   else //if (typeProm !== "yes") 
   {
@@ -54,35 +54,35 @@ function generatePassword() {
   }
   caseProm = window.prompt("Do you want all uppercase?('yes' or 'no')")
   if (caseProm === "yes") {
-    specialProm = window.alert("You chose to include uppercase");
+    caseProm = window.alert("You chose to include uppercase");
     genArr.concat(charCap);
 
   }
   else //if (caseProm !== "yes") 
   {
-    specialProm = window.prompt("You chose not to include uppercase");
+    caseProm = window.prompt("You chose not to include uppercase");
     //!genArr.concat(charCap);
   }
   specialProm = window.prompt("Do you want to include special characters? ('yes' or 'no')")
 
   if (specialProm === "yes") {
     genArr.concat(specialChar);
-    window.alert("You chose to include special characters")
+    specialProm = window.alert("You chose to include special characters")
   }
   else //if (specialProm !== "yes") 
   {
     //!genArr.concat(specialChar);
-    window.alert("You chose not to include special characters")
+    specialProm = window.alert("You chose not to include special characters")
   }
   lowProm = window.prompt("Do you want to include lowercase characters? ('yes' or 'no')")
   if (lowProm === "yes") {
-    window.alert("You chose to include lowercase")
+    lowProm = window.alert("You chose to include lowercase")
     genArr.concat(characters);
   }
   else //if (lowProm != "yes") 
   {
     //!genArr.concat(characters);
-    window.alert("You chose not to include lowercase")
+    lowProm = window.alert("You chose not to include lowercase")
   }
 
   /*
