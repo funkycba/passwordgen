@@ -24,8 +24,9 @@ var characters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m
 var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "<", ">", "?", "_", "+", "=", "~"];
 function generatePassword() {
   var result = "";
-  var genArr = "";
-  var lengthProm = window.prompt("Select character length between 8 and 128")//Need variable for character length
+  var genArr = [];
+  //var possibleChar = [];
+  let lengthProm = window.prompt("Select character length between 8 and 128");//Need variable for character length
 
   if (lengthProm < 8) {
     window.alert("Please select a length of 8 or more.");
@@ -38,25 +39,32 @@ function generatePassword() {
   window.alert("You have selected " + lengthProm);
 
 
-  var lowProm
-  var caseProm
-  var specialProm
-  var typeProm = window.confirm("Length accepted. Do you want to use numeric characters?")    //Need variable for character types
-
+  var lowProm;
+  var caseProm;
+  var specialProm;
+  var typeProm = window.confirm("Length accepted. Do you want to use numeric characters?");    //Need variable for character types
+  //function gitrandom(arr) {
+  //  var randomindex = (Math.floor(Math.random() * arr.length));
+  //  var randomElement = arr[randomindex];
+  //}
   if (typeProm === true) {
-    genArr.concat(numCharacters);
+    genArr = genArr.concat(numCharacters)
+    //possibleChar = possibleChar.concat(numCharacters);
+    //genArr.push(gitrandom(numCharacters));
     typeProm = window.alert("You chose to include numeric characters.");
     console.log(genArr);
   }
   else //if (typeProm !== "yes") 
   {
     //!genArr.concat(numCharacters);
-    caseProm = window.alert("You chose not to include numeric characters.");
+    typeProm = window.alert("You chose not to include numeric characters.");
   }
-  caseProm = window.confirm("Do you want all uppercase?('yes' or 'no')")
+  caseProm = window.confirm("Do you want all uppercase?('yes' or 'no')");
   if (caseProm === true) {
     caseProm = window.alert("You chose to include uppercase");
-    genArr.concat(charCap);
+    //genArr.push(gitrandom(charCap));
+    genArr = genArr.concat(charCap);
+
     console.log(genArr);
 
   }
@@ -65,28 +73,32 @@ function generatePassword() {
     caseProm = window.alert("You chose not to include uppercase");
     //!genArr.concat(charCap);
   }
-  specialProm = window.confirm("Do you want to include special characters? ('yes' or 'no')")
+  specialProm = window.confirm("Do you want to include special characters? ('yes' or 'no')");
 
   if (specialProm === true) {
-    genArr.concat(specialChar);
+    //genArr.concat(specialChar);
+    //genArr.push(gitrandom(specialChar));
+    genArr = genArr.concat(specialChar)
     specialProm = window.alert("You chose to include special characters");
+    
     console.log(genArr);
   }
   else //if (specialProm !== "yes") 
   {
     //!genArr.concat(specialChar);
-    specialProm = window.alert("You chose not to include special characters")
+    specialProm = window.alert("You chose not to include special characters");
   }
   lowProm = window.confirm("Do you want to include lowercase characters? ('yes' or 'no')")
   if (lowProm === true) {
-    lowProm = window.alert("You chose to include lowercase")
-    genArr.concat(characters);
+    lowProm = window.alert("You chose to include lowercase");
+    genArr = genArr.concat(characters);
+    //genArr.push(gitrandom(characters));
     console.log(genArr);
   }
   else //if (lowProm != "yes") 
   {
     //!genArr.concat(characters);
-    lowProm = window.alert("You chose not to include lowercase")
+    lowProm = window.alert("You chose not to include lowercase");
   }
 
   /*
@@ -126,7 +138,7 @@ function generatePassword() {
   
   for (var i = 0; i < lengthProm; i++)
     result += genArr[Math.floor(Math.random() * genArr.length)];
-    console.log(genArr)
+    console.log(genArr);
   return result;
 
 
