@@ -24,7 +24,7 @@ var characters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m
 var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "<", ">", "?", "_", "+", "=", "~"];
 function generatePassword() {
   var result = "";
-  var genArr = [];
+  var genArr = "";
   var lengthProm = window.prompt("Select character length between 8 and 128")//Need variable for character length
 
   if (lengthProm < 8) {
@@ -41,43 +41,47 @@ function generatePassword() {
   var lowProm
   var caseProm
   var specialProm
-  var typeProm = window.prompt("Length accepted. Do you want to use numeric characters?")    //Need variable for character types
+  var typeProm = window.confirm("Length accepted. Do you want to use numeric characters?")    //Need variable for character types
 
-  if (typeProm === "yes") {
+  if (typeProm === true) {
     genArr.concat(numCharacters);
     typeProm = window.alert("You chose to include numeric characters.");
+    console.log(genArr);
   }
   else //if (typeProm !== "yes") 
   {
     //!genArr.concat(numCharacters);
     caseProm = window.alert("You chose not to include numeric characters.");
   }
-  caseProm = window.prompt("Do you want all uppercase?('yes' or 'no')")
-  if (caseProm === "yes") {
+  caseProm = window.confirm("Do you want all uppercase?('yes' or 'no')")
+  if (caseProm === true) {
     caseProm = window.alert("You chose to include uppercase");
     genArr.concat(charCap);
+    console.log(genArr);
 
   }
   else //if (caseProm !== "yes") 
   {
-    caseProm = window.prompt("You chose not to include uppercase");
+    caseProm = window.alert("You chose not to include uppercase");
     //!genArr.concat(charCap);
   }
-  specialProm = window.prompt("Do you want to include special characters? ('yes' or 'no')")
+  specialProm = window.confirm("Do you want to include special characters? ('yes' or 'no')")
 
-  if (specialProm === "yes") {
+  if (specialProm === true) {
     genArr.concat(specialChar);
-    specialProm = window.alert("You chose to include special characters")
+    specialProm = window.alert("You chose to include special characters");
+    console.log(genArr);
   }
   else //if (specialProm !== "yes") 
   {
     //!genArr.concat(specialChar);
     specialProm = window.alert("You chose not to include special characters")
   }
-  lowProm = window.prompt("Do you want to include lowercase characters? ('yes' or 'no')")
-  if (lowProm === "yes") {
+  lowProm = window.confirm("Do you want to include lowercase characters? ('yes' or 'no')")
+  if (lowProm === true) {
     lowProm = window.alert("You chose to include lowercase")
     genArr.concat(characters);
+    console.log(genArr);
   }
   else //if (lowProm != "yes") 
   {
@@ -119,8 +123,10 @@ function generatePassword() {
      }
    }*/
   //random number generator for selecting characters
+  
   for (var i = 0; i < lengthProm; i++)
     result += genArr[Math.floor(Math.random() * genArr.length)];
+    console.log(genArr)
   return result;
 
 
